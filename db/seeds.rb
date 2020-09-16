@@ -5,3 +5,16 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+require 'faker'
+
+Task.delete_all
+
+10.times do |index|
+Task.create(
+    title: Faker::Educator.course_name,
+    position:index,
+    completed:index % 2==0 ? true:false
+)
+end
+
